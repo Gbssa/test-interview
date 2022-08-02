@@ -1,0 +1,57 @@
+<div class="container text-center">
+  <h1>{{title}}</h1>
+</div>
+<div>
+  <div>
+    <div>
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="Search user">
+    </div>
+    <div style="margin-top: 20px;" *ngFor="let user of Users | filter:searchText">
+
+      <div>
+        <span>
+          <img src="{{user.image}}" alt="">
+        </span>
+      </div>
+      <div>
+        <span class="title">Name:</span>
+        <span> {{user.name}}</span>
+      </div>
+
+      <div>
+        <span class="title">Login: </span>
+        <span>{{user.login}}</span>
+      </div>
+
+      <div>
+        <span class="title">Descripition:</span>
+        <span>{{user.description}}</span>
+      </div>
+
+      <div>
+        <span class="title">Followers:</span>
+        <span>{{user.followers}}</span>
+      </div>
+
+      <div>
+        <span class="title">Following:</span>
+        <span>{{user.following}}</span>
+      </div>
+
+      <div>
+        <span class="title">Starts: </span>
+        <span> {{user.stars}}</span>
+        <link class="fa fa-star checked" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      </div>
+
+      <div>
+        <span class="title">Location:</span>
+        <span>{{user.location}}</span>
+      </div>
+
+    </div>
+  </div>
+</div>

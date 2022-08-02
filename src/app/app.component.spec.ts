@@ -1,10 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from './app.component';
+import { HomeSearchComponent } from './home-search/home-search.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      
       imports: [
         RouterTestingModule
       ],
@@ -23,13 +26,16 @@ describe('AppComponent', () => {
   it(`should have as title 'test'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('test');
+    expect(app.title).toEqual('Search Github');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('test app is running!');
+    fixture.whenStable().then(() => {
+      expect(compiled.querySelector('.content span')?.textContent).toBeUndefined()
+    });
+    
   });
 });
